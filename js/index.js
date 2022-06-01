@@ -69,17 +69,17 @@ const listas = document.querySelector('#listas');
 const add = document.querySelector('#plius');
 const remove = document.querySelector('#minus');
 let firstNumber = document.querySelector('#a');
+
 let secondNumber = document.querySelector('#b');
 const resultatas = document.querySelector('#resul');
+const kubas = 0;
 add.addEventListener('click', function(){
-    firstNumber += secondNumber;
-    resultatas.innerText = firstNumber;
+    resultatas.innerText = (+firstNumber.value) + (+secondNumber.value);
 })
 remove.addEventListener('click', function(){
-    firstNumber -= secondNumber;
-    resultatas.innerText=firstNumber;
+    
+    resultatas.innerText = (+firstNumber.value )- (+secondNumber.value);
 })
-
 
 ///5. a. JS pagalba perskaitykite masyvą australia ir kiekvieną masyvo elementą įrašykite į strigą su <li> tagais iš abiejų pusių, o visus gautus stringus sudėkite į vieną bendrą stringą. (8 taškai)
 australia.forEach(kinta =>{   
@@ -88,14 +88,18 @@ australia.forEach(kinta =>{
 
 let stringas = '';
 for (let i = 0; i < australia.length; i++) {
-    if (australia[1] !== 'Dingo') {
+    if (australia[i] !== 'Dingo') {
         stringas+=`<li>${australia[i]}</li>`; 
     }else{
-        stringas+=`<li style="background-color: #0000CD;">${australia[i]}</li>`;
+        
+        //c. Generavimo metu “Dingo” background’ą nuspalvinkite mėlynai. (5 taškai)
+
+        stringas+=`<li style="background: #0000CD;">${australia[i]}</li>`;
     }
     
 
     } 
 console.log(stringas);
 //b. Tą stringą naudodami innerHTML() metodą įdėkite į <ul> tago vidų. (5 taškai)
-//c. Generavimo metu “Dingo” background’ą nuspalvinkite mėlynai. (5 taškai)
+const idejus = document.querySelector('#vidus');
+idejus.innerHTML = stringas;
